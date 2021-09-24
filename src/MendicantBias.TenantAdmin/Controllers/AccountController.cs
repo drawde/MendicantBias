@@ -35,19 +35,7 @@ namespace MendicantBias.TenantAdmin.Controllers
             });
             if (response.IsSuccess && response.Body != null)
             {
-                //var claims = new List<Claim>()
-                //{
-                //    new Claim(ClaimTypes.Name, response.Body.UserName),
-                //    new Claim("password", response.Body.Password)
-                //};
 
-                //var userPrincipal = new ClaimsPrincipal(new ClaimsIdentity(claims, "Tenant"));
-                //await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, userPrincipal, new AuthenticationProperties
-                //{
-                //    ExpiresUtc = DateTime.UtcNow.AddMinutes(20),
-                //    IsPersistent = false,
-                //    AllowRefresh = false
-                //});
                 return Content(response.Body.Token);
             }
 
