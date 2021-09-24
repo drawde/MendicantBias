@@ -1,0 +1,12 @@
+<Project>
+    <Import Project="build\version.props" />
+    <PropertyGroup Label="Package">
+        <Product>MendicantBias</Product>
+        <Copyright>2019 MendicantBias, Inc.</Copyright>
+        <PackageId>$(AssemblyName)</PackageId>
+        <Authors>Ahoo Wang</Authors>
+        <Description>
+     
+        </Description> 
+    </PropertyGroup>
+</Project>

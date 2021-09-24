@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+//*******************************
+// Create By Drawde
+// Date 2021-08-25 10:31
+// Code Generate By SmartCode
+// Code Generate Github : https://github.com/Ahoo-Wang/SmartCode
+//*******************************-->
+
+<SmartSqlMap Scope="UsersEntity" xmlns="http://SmartSql.net/schemas/SmartSqlMap.xsd">
+
+	<Statements>
+
+		<Statement Id="AllCols">
+			T.Id,T.TenantCode,T.UserName,T.Password,T.HeadIcon,T.Status,T.NickName,T.SecretKey,T.AddTime,T.LastLoginTime
+		</Statement>
+    <Statement Id="SafeCols">
+      T.TenantCode,T.UserName,T.HeadIcon,T.Status,T.NickName,T.AddTime,T.LastLoginTime
+    </Statement>
+		<Statement Id="QueryParams">
+			<Where>
+				<IsNotEmpty Prepend="And" Property="Id">
+					T.Id = @Id
+				</IsNotEmpty>
+				<IsNotEmpty Prepend="And" Property="TenantCode">
+					T.TenantCode = @TenantCode
+				</IsNotEmpty>
+				<IsNotEmpty Prepend="And" Property="UserName">
+					T.UserName = @UserName
+				</IsNotEmpty>
+				<IsNotEmpty Prepend="And" Property="Password">
+					T.Password = @Password
+				</IsNotEmpty>
+				<IsNotEmpty Prepend="And" Property="HeadIcon">
+					T.HeadIcon = @HeadIcon
+				</IsNotEmpty>
+				<IsNotEmpty Prepend="And" Property="Status">
+					T.Status = @Status
+				</IsNotEmpty>
+				<IsNotEmpty Prepend="And" Property="NickName">
+					T.NickName = @NickName
+				</IsNotEmpty>
+				<IsNotEmpty Prepend="And" Property="SecretKey">
+					T.SecretKey = @SecretKey
+				</IsNotEmpty>
+				<IsNotEmpty Prepend="And" Property="AddTime">
+					T.AddTime = @AddTime
+				</IsNotEmpty>
+				<IsNotEmpty Prepend="And" Property="LastLoginTime">
+					T.LastLoginTime = @LastLoginTime
+				</IsNotEmpty>
+			</Where>
+		</Statement>
+
+
+		<!--新增-->
+		<Statement Id="Insert">
+			<IdGenerator Name="SnowflakeId" Id="Id"/>
+			INSERT INTO Users
+			(
+			Id,
+			TenantCode,
+			UserName,
+			Password,
+			HeadIcon,
+			Status,
+			NickName,
+			SecretKey,
+			AddTime,
+			LastLoginTime
+			)
+			VALUES
+			(
+			@Id,
+			@TenantCode,
+			@UserName,
+			@Password,
+			@HeadIcon,
+			@Status,
+			@NickName,
+			@SecretKey,
+			@AddTime,
+			@LastLoginTime
+			)
+			Select @Id;
+		</Statement>
+
+		<!--删除-->
+		<Statement Id="Delete">
+			Delete From Users
+			Where Id=@Id
+		</Statement>
+
+		<!--更新-->
+		<Statement Id="Update">
+			UPDATE Users
+			<Set>
+				<IsProperty Prepend="," Property="TenantCode">
+					TenantCode = @TenantCode
+				</IsProperty>
+				<IsProperty Prepend="," Property="UserName">
+					UserName = @UserName
+				</IsProperty>
+				<IsProperty Prepend="," Property="Password">
+					Password = @Password
+				</IsProperty>
+				<IsProperty Prepend="," Property="HeadIcon">
+					HeadIcon = @HeadIcon
+				</IsProperty>
+				<IsProperty Prepend="," Property="Status">
+					Status = @Status
+				</IsProperty>
+				<IsProperty Prepend="," Property="NickName">
+					NickName = @NickName
+				</IsProperty>
+				<IsProperty Prepend="," Property="SecretKey">
+					SecretKey = @SecretKey
+				</IsProperty>
+				<IsProperty Prepend="," Property="AddTime">
+					AddTime = @AddTime
+				</IsProperty>
+				<IsProperty Prepend="," Property="LastLoginTime">
+					LastLoginTime = @LastLoginTime
+				</IsProperty>
+			</Set>
+			Where Id=@Id
+		</Statement>
+
+		<!--获取数据列-->
+		<Statement Id="Query" >
+			SELECT
+			<IsNotEmpty Prepend="Top" Property="Taken">
+				(@Taken)
+			</IsNotEmpty>
+			<Include RefId="AllCols"/>
+			From Users T
+			<Include RefId="QueryParams"/>
+			<Switch Prepend="Order By" Property="OrderBy">
+				<Default>
+					T.Id Desc
+				</Default>
+			</Switch>
+		</Statement>
+
+
+		<!--获取分页数据-->
+		<Statement Id="QueryByPage" >
+
+			Select
+			<Include RefId="AllCols"/>
+			From Users T With(NoLock)
+			<Include RefId="QueryParams"/>
+			Order By T.Id Desc
+			Offset ((@PageIndex-1)*@PageSize) Rows Fetch Next @PageSize Rows Only;
+		</Statement>
+
+
+		<!--获取记录数-->
+		<Statement Id="GetRecord">
+			Select Count(1) From Users T
+			<Include RefId="QueryParams" />
+		</Statement>
+
+    <Statement Id="CheckLogin">
+      Select top 1 <Include RefId="AllCols"/> From Users T      
+      <Include RefId="QueryParams" />
+    </Statement>
+    
+		<!--获取表映射实体-->
+		<Statement Id="GetEntity" >
+			Select Top 1
+			<Include RefId="AllCols"/>
+			From Users T With(NoLock)
+			<Where Min="1">
+				<IsNotEmpty Prepend="And" Property="Id">
+					T.Id= @Id
+				</IsNotEmpty>
+				<IsNotEmpty Prepend="And" Property="TenantCode">
+					T.TenantCode= @TenantCode
+				</IsNotEmpty>
+				<IsNotEmpty Prepend="And" Property="UserName">
+					T.UserName= @UserName
+				</IsNotEmpty>
+				<IsNotEmpty Prepend="And" Property="Password">
+					T.Password= @Password
+				</IsNotEmpty>
+				<IsNotEmpty Prepend="And" Property="HeadIcon">
+					T.HeadIcon= @HeadIcon
+				</IsNotEmpty>
+				<IsNotEmpty Prepend="And" Property="Status">
+					T.Status= @Status
+				</IsNotEmpty>
+				<IsNotEmpty Prepend="And" Property="NickName">
+					T.NickName= @NickName
+				</IsNotEmpty>
+				<IsNotEmpty Prepend="And" Property="SecretKey">
+					T.SecretKey= @SecretKey
+				</IsNotEmpty>
+				<IsNotEmpty Prepend="And" Property="AddTime">
+					T.AddTime= @AddTime
+				</IsNotEmpty>
+				<IsNotEmpty Prepend="And" Property="LastLoginTime">
+					T.LastLoginTime= @LastLoginTime
+				</IsNotEmpty>
+			</Where>
+		</Statement>
+
+
+		<!--是否存在该记录-->
+		<Statement Id="IsExist">
+			Select Count(1) From Users T
+			<Include RefId="QueryParams" />
+		</Statement>
+
+
+	</Statements>
+</SmartSqlMap>

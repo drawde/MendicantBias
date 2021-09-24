@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+//*******************************
+// Create By Drawde
+// Date 2021-08-25 10:31
+// Code Generate By SmartCode
+// Code Generate Github : https://github.com/Ahoo-Wang/SmartCode
+//*******************************-->
+
+<SmartSqlMap Scope="TenantsEntity" xmlns="http://SmartSql.net/schemas/SmartSqlMap.xsd">
+
+    <Statements>
+
+<Statement Id="AllCols">
+T.Id,T.TenantCode,T.TenantName,T.TenantIcon,T.Telephone,T.ExpirationTime,T.AddTime,T.Status</Statement>        <Statement Id="QueryParams">
+            <Where>
+                    <IsNotEmpty Prepend="And" Property="Id">
+                        T.Id = @Id
+                    </IsNotEmpty>
+                    <IsNotEmpty Prepend="And" Property="TenantCode">
+                        T.TenantCode = @TenantCode
+                    </IsNotEmpty>
+                    <IsNotEmpty Prepend="And" Property="TenantName">
+                        T.TenantName = @TenantName
+                    </IsNotEmpty>
+                    <IsNotEmpty Prepend="And" Property="TenantIcon">
+                        T.TenantIcon = @TenantIcon
+                    </IsNotEmpty>
+                    <IsNotEmpty Prepend="And" Property="Telephone">
+                        T.Telephone = @Telephone
+                    </IsNotEmpty>
+                    <IsNotEmpty Prepend="And" Property="ExpirationTime">
+                        T.ExpirationTime = @ExpirationTime
+                    </IsNotEmpty>
+                    <IsNotEmpty Prepend="And" Property="AddTime">
+                        T.AddTime = @AddTime
+                    </IsNotEmpty>
+                    <IsNotEmpty Prepend="And" Property="Status">
+                        T.Status = @Status
+                    </IsNotEmpty>
+            </Where>
+        </Statement>
+
+
+<!--新增-->
+<Statement Id="Insert">
+    INSERT INTO Tenants
+    (
+      TenantCode,
+      TenantName,
+      TenantIcon,
+      Telephone,
+      ExpirationTime,
+      AddTime,
+      Status
+    )
+    VALUES
+    (
+      @TenantCode,
+      @TenantName,
+      @TenantIcon,
+      @Telephone,
+      @ExpirationTime,
+      @AddTime,
+      @Status
+    )
+;Select Scope_Identity();
+</Statement>
+
+<!--删除-->
+<Statement Id="Delete">
+    Delete From Tenants
+    Where Id=@Id
+</Statement>
+
+<!--更新-->
+<Statement Id="Update">
+    UPDATE Tenants
+    <Set>
+                <IsProperty Prepend="," Property="TenantName">
+                    TenantName = @TenantName
+                </IsProperty>
+                <IsProperty Prepend="," Property="TenantIcon">
+                    TenantIcon = @TenantIcon
+                </IsProperty>
+                <IsProperty Prepend="," Property="Telephone">
+                    Telephone = @Telephone
+                </IsProperty>
+                <IsProperty Prepend="," Property="ExpirationTime">
+                    ExpirationTime = @ExpirationTime
+                </IsProperty>
+                <IsProperty Prepend="," Property="AddTime">
+                    AddTime = @AddTime
+                </IsProperty>
+                <IsProperty Prepend="," Property="Status">
+                    Status = @Status
+                </IsProperty>
+    </Set>
+    Where Id=@Id
+</Statement>
+
+    <!--获取数据列-->
+    <Statement Id="Query" >
+        SELECT
+        <IsNotEmpty Prepend="Top" Property="Taken">
+            (@Taken)
+        </IsNotEmpty>
+        <Include RefId="AllCols"/>
+        From Tenants T
+        <Include RefId="QueryParams"/>
+        <Switch Prepend="Order By" Property="OrderBy">
+            <Default>
+                T.Id Desc
+            </Default>
+        </Switch>
+    </Statement>
+
+
+    <!--获取分页数据-->
+    <Statement Id="QueryByPage" >
+
+                Select 
+                <Include RefId="AllCols"/>
+                From Tenants T With(NoLock)
+                <Include RefId="QueryParams"/>
+                Order By T.Id Desc
+                Offset ((@PageIndex-1)*@PageSize) Rows Fetch Next @PageSize Rows Only;
+                </Statement>
+
+
+<!--获取记录数-->
+<Statement Id="GetRecord">
+    Select Count(1) From Tenants T
+    <Include RefId="QueryParams" />
+</Statement>
+
+		<Statement Id="ValidateTenant">
+			Select <Include RefId="AllCols"/> From Tenants T
+			where TenantCode = @TenantCode and Status = @Status and ExpirationTime &gt;= @ExpirationTime
+		</Statement>
+		
+    <!--获取表映射实体-->
+    <Statement Id="GetEntity" >
+        Select Top 1 
+        <Include RefId="AllCols"/>
+        From Tenants T With(NoLock)
+        <Where Min="1">
+                <IsNotEmpty Prepend="And" Property="Id">
+                    T.Id= @Id
+                </IsNotEmpty>
+                <IsNotEmpty Prepend="And" Property="TenantCode">
+                    T.TenantCode= @TenantCode
+                </IsNotEmpty>
+                <IsNotEmpty Prepend="And" Property="TenantName">
+                    T.TenantName= @TenantName
+                </IsNotEmpty>
+                <IsNotEmpty Prepend="And" Property="TenantIcon">
+                    T.TenantIcon= @TenantIcon
+                </IsNotEmpty>
+                <IsNotEmpty Prepend="And" Property="Telephone">
+                    T.Telephone= @Telephone
+                </IsNotEmpty>
+                <IsNotEmpty Prepend="And" Property="ExpirationTime">
+                    T.ExpirationTime= @ExpirationTime
+                </IsNotEmpty>
+                <IsNotEmpty Prepend="And" Property="AddTime">
+                    T.AddTime= @AddTime
+                </IsNotEmpty>
+                <IsNotEmpty Prepend="And" Property="Status">
+                    T.Status= @Status
+                </IsNotEmpty>
+        </Where>
+    </Statement>
+
+
+<!--是否存在该记录-->
+<Statement Id="IsExist">
+    Select Count(1) From Tenants T
+    <Include RefId="QueryParams" />
+</Statement>
+
+
+    </Statements>
+</SmartSqlMap>

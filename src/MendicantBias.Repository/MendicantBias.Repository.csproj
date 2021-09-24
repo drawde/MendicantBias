@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="SmartSql" Version="4.1.42" />
+    <PackageReference Include="SmartSql.DyRepository" Version="4.1.42" />
+    <PackageReference Include="SmartSql.ScriptTag" Version="4.1.42" />
+    <PackageReference Include="SmartSql.TypeHandler" Version="4.1.42" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MendicantBias.Entity\MendicantBias.Entity.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Extensions\Maps\TenantsEntity.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Extensions\Maps\UsersEntity.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="SmartSqlMapConfig.Development.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="SmartSqlMapConfig.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

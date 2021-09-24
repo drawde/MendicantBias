@@ -1,0 +1,69 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31613.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MendicantBias.API", "src\MendicantBias.API\MendicantBias.API.csproj", "{CEA52B07-9E7F-4A4D-AF6D-4C43E7255D0E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{20C12BB6-7202-46F4-9A92-3528FFC2B91B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{68E40CDE-0E75-4372-96C4-1507D50993CD}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+		build\SmartCode.yml = build\SmartCode.yml
+		build\version.props = build\version.props
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker", "docker", "{1666CC75-624D-4AE9-84D7-7F9F338658C5}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		Dockerfile = Dockerfile
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MendicantBias.Repository", "src\MendicantBias.Repository\MendicantBias.Repository.csproj", "{DCCCC20C-C464-4518-BC8D-3F823FD16277}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MendicantBias.Entity", "src\MendicantBias.Entity\MendicantBias.Entity.csproj", "{36AD6C49-12AB-4962-A1EE-61442CFA8FD4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MendicantBias.Service", "src\MendicantBias.Service\MendicantBias.Service.csproj", "{DDEAE5EF-47CE-4DB0-A1F9-D1F9554D0EB8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MendicantBias.Util", "src\MendicantBias.Util\MendicantBias.Util.csproj", "{13D8A76E-1C5B-42FD-90B5-1005ED2C80D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MendicantBias.TenantAdmin", "src\MendicantBias.TenantAdmin\MendicantBias.TenantAdmin.csproj", "{9C266AE7-CC83-46FC-81EC-B43DB1B7115A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CEA52B07-9E7F-4A4D-AF6D-4C43E7255D0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEA52B07-9E7F-4A4D-AF6D-4C43E7255D0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEA52B07-9E7F-4A4D-AF6D-4C43E7255D0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEA52B07-9E7F-4A4D-AF6D-4C43E7255D0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCCCC20C-C464-4518-BC8D-3F823FD16277}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCCCC20C-C464-4518-BC8D-3F823FD16277}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCCCC20C-C464-4518-BC8D-3F823FD16277}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCCCC20C-C464-4518-BC8D-3F823FD16277}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36AD6C49-12AB-4962-A1EE-61442CFA8FD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36AD6C49-12AB-4962-A1EE-61442CFA8FD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36AD6C49-12AB-4962-A1EE-61442CFA8FD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36AD6C49-12AB-4962-A1EE-61442CFA8FD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDEAE5EF-47CE-4DB0-A1F9-D1F9554D0EB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDEAE5EF-47CE-4DB0-A1F9-D1F9554D0EB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDEAE5EF-47CE-4DB0-A1F9-D1F9554D0EB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDEAE5EF-47CE-4DB0-A1F9-D1F9554D0EB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13D8A76E-1C5B-42FD-90B5-1005ED2C80D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13D8A76E-1C5B-42FD-90B5-1005ED2C80D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13D8A76E-1C5B-42FD-90B5-1005ED2C80D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13D8A76E-1C5B-42FD-90B5-1005ED2C80D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C266AE7-CC83-46FC-81EC-B43DB1B7115A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C266AE7-CC83-46FC-81EC-B43DB1B7115A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C266AE7-CC83-46FC-81EC-B43DB1B7115A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C266AE7-CC83-46FC-81EC-B43DB1B7115A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {20ACC346-01D3-4D28-AAC5-F81767A47DAB}
+	EndGlobalSection
+EndGlobal
